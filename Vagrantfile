@@ -4,13 +4,13 @@ Vagrant.configure("2") do |config|
   config.vm.box = "hashicorp/bionic64"
 
   config.vm.define "frontend" do |frontend|
-    frontend.vm.network "private_network", ip: "172.20.20.10"
+    frontend.vm.network "private_network", ip: "172.20.20.10", virtualbox__intnet: true
     frontend.vm.network "forwarded_port", guest: 4200, host: 8080
     frontend.vm.provision :shell, path: "frontend.sh"
   end
 
   config.vm.define "backend" do |backend|
-    backend.vm.network "private_network", ip: "172.20.20.11"
+    backend.vm.network "private_network", ip: "172.20.20.11", virtualbox__intnet: true
     backend.vm.provision :shell, path: "backend.sh"
   end
   
