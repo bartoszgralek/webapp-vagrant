@@ -10,8 +10,9 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define "backend" do |backend|
-    backend.vm.network "private_network", ip: "172.20.20.11", virtualbox__intnet: true
-    backend.vm.provision :shell, path: "backend.sh"
+    # backend.vm.network "private_network", ip: "172.20.20.11", virtualbox__intnet: true
+    backend.vm.network "public_network"
+    # backend.vm.provision :shell, path: "backend.sh"
   end
   
   # Disable automatic box update checking. If you disable this, then
@@ -49,13 +50,13 @@ Vagrant.configure("2") do |config|
   # backing providers for Vagrant. These expose provider-specific options.
   # Example for VirtualBox:
   #
-  # config.vm.provider "virtualbox" do |vb|
+  config.vm.provider "virtualbox" do |vb|
   #   # Display the VirtualBox GUI when booting the machine
-  #   vb.gui = true
+   vb.gui = true
   #
   #   # Customize the amount of memory on the VM:
   #   vb.memory = "1024"
-  # end
+  end
   #
   # View the documentation for the provider you are using for more
   # information on available options.
