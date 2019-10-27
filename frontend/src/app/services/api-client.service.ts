@@ -15,9 +15,13 @@ export class ApiClientService {
   public getSample(): Observable<string> {
     let url = environment.apiUrl + "/people/1";
 
-    return this.httpClient.get<SampleModel>(url)
-      .pipe(
-        map(response => response.name)
-      );
+    return this.httpClient.get("http://localhost:8080/people", {responseType: 'text'});
+
+    // console.log("Message: " + hello);
+    //
+    // return this.httpClient.get<SampleModel>(url)
+    //   .pipe(
+    //     map(response => response.name)
+    //   );
   }
 }
