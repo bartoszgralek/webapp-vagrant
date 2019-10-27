@@ -2,8 +2,8 @@
 
 sudo add-apt-repository universe
 sudo apt-get update
-sudo apt-get -qq -y install default-jdk
-sudo apt-get -qq -y git
+sudo apt-get -y install default-jdk
+sudo apt-get -y install git
 
 DIRECTORY=/home/vagrant/webapp-vagrant
 
