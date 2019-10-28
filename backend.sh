@@ -5,14 +5,14 @@ sudo apt-get update
 sudo apt-get -y install default-jdk
 sudo apt-get -y install git
 
-DIRECTORY=/home/vagrant/webapp-vagrant
-
-if [ ! -d "$DIRECTORY" ]; then
-  git clone https://github.com/bartoszgralek/webapp-vagrant.git
-fi
+mkdir -p ~/.ssh
+chmod 700 ~/.ssh
+ssh-keyscan -H github.com >> ~/.ssh/known_hosts
+ssh -T git@github.com
+git clone -b vagrant-test git@github.com:bartoszgralek/webapp-vagrant.git
 
 cd webapp-vagrant
 git pull
 cd backend
 ./mvnw clean install
-./mvnw spring-boot:run
+./mvnw spring-boot:run &
