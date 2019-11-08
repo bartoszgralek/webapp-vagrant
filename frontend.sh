@@ -17,5 +17,5 @@ git pull
 cd frontend
 
 sudo npm install -g --silent @angular/cli
-npm install --silent --no-bin-links
-ng set defaults.poll 100 && ng serve --host 0.0.0.0 --port 4200 --watch --disableHostCheck"
+sudo npm install --silent --no-bin-links
+sudo ng set defaults.poll 100 && ng serve --host 0.0.0.0 --port 4200 --watch --disableHostCheck"

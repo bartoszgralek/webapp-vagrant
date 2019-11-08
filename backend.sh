@@ -14,5 +14,5 @@ git clone -b vagrant-test git@github.com:bartoszgralek/webapp-vagrant.git
 cd webapp-vagrant
 git pull
 cd backend
-./mvnw clean install
-./mvnw spring-boot:run &
+sudo ./mvnw clean install
+sudo ./mvnw spring-boot:run &
