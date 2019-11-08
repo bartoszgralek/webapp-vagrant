@@ -10,7 +10,7 @@ public class ManController {
 
     @GetMapping
     public String getMessage() {
-        return "Hello";
+        return "Luke Skywalker";
     }
 
 }

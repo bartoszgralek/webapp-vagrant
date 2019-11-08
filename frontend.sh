@@ -18,6 +18,4 @@ cd frontend
 
 sudo npm install -g --silent @angular/cli
 npm install --silent --no-bin-links
-echo "Starting server"
-nohup ng serve --host 192.168.0.18 &
-echo "End starting server"
+ng set defaults.poll 100 && ng serve --host 0.0.0.0 --port 4200 --watch --disableHostCheck"

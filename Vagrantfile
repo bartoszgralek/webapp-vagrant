@@ -6,6 +6,10 @@ Vagrant.configure("2") do |config|
   config.vm.define "backend" do |backend|
     backend.vm.provision "shell", path: "backend.sh"
     backend.vm.network "private_network", ip: "192.168.0.17"
+
+#    backend.vm.provision :ansible do |ansible|
+#      ansible.playbook = "backend.yml"
+
   end
 
   config.vm.define "frontend" do |frontend|
@@ -13,5 +17,7 @@ Vagrant.configure("2") do |config|
     frontend.vm.network "private_network", ip: "192.168.0.18"
     frontend.vm.network "forwarded_port", guest: 4200, host: 4200
   end
+
+
 
 end
