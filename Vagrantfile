@@ -9,7 +9,6 @@ Vagrant.configure("2") do |config|
 
 #    backend.vm.provision :ansible do |ansible|
 #      ansible.playbook = "backend.yml"
-
   end
 
   config.vm.define "frontend" do |frontend|
