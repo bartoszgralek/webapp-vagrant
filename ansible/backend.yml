@@ -1,0 +1,28 @@
+- hosts: frontend
+  remote_user: test
+  roles:
+    - role: geerlingguy.java
+      become: yes
+  tasks:
+    - name: Update and upgrade apt packages
+      become: true
+      apt:
+        upgrade: yes
+        update_cache: yes
+    - name: Install tools
+      become: true
+      apt:
+        pkg:
+        - nodejs
+        - npm
+        - git
+    - name: Clone repository
+      git:
+        repo: https://github.com/bartoszgralek/webapp-vagrant.git
+        dest: /home/vagrant/webapp-vagrant/
+        version: 'vagrant-test'
+    - name: Give ownership to vagrant
+      file:
+        path: /home/vagrant/.m2
+        owner: vagrant
+        group: vagrant

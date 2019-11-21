@@ -1,0 +1,31 @@
+- hosts: frontend
+  remote_user: test
+  tasks:
+    - name: Update and upgrade apt packages
+      become: true
+      apt:
+        upgrade: yes
+        update_cache: yes
+    - name: Setup
+      become: true
+      shell: 'curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -'
+    - name: Install tools
+      become: true
+      apt:
+        pkg:
+        - nodejs
+        - npm
+        - git
+    - name: Clone repository
+      git:
+        repo: https://github.com/bartoszgralek/webapp-vagrant.git
+        dest: /home/vagrant/webapp-vagrant/
+        version: 'vagrant-test'
+    - name: Install angular cli
+      npm:
+        name: '@angular/cli'
+        global: yes
+    - name: Install node packages
+      npm:
+        path: /home/vagrant/webapp-vagrant/
+       
