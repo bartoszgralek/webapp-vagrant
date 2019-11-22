@@ -1,20 +1,22 @@
-- hosts: frontend
-  remote_user: test
+- hosts: all
+  become: yes
   tasks:
     - name: Update and upgrade apt packages
       become: true
       apt:
-        upgrade: yes
         update_cache: yes
     - name: Setup
       become: true
       shell: 'curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -'
+    - name: Fix packages
+      become: true
+      apt:
+        state: fixed
     - name: Install tools
       become: true
       apt:
         pkg:
         - nodejs
-        - npm
         - git
     - name: Clone repository
       git:
@@ -28,4 +30,3 @@
     - name: Install node packages
       npm:
         path: /home/vagrant/webapp-vagrant/
-       

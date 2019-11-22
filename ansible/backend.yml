@@ -1,5 +1,5 @@
-- hosts: frontend
-  remote_user: test
+- hosts: all
+  become: yes
   roles:
     - role: geerlingguy.java
       become: yes
@@ -7,7 +7,6 @@
     - name: Update and upgrade apt packages
       become: true
       apt:
-        upgrade: yes
         update_cache: yes
     - name: Install tools
       become: true
@@ -21,6 +20,11 @@
         repo: https://github.com/bartoszgralek/webapp-vagrant.git
         dest: /home/vagrant/webapp-vagrant/
         version: 'vagrant-test'
+    - name: Create a m2 directory if it does not exist
+      file:
+        path: /home/vagrant/.m2
+        state: directory
+        mode: '0755'
     - name: Give ownership to vagrant
       file:
         path: /home/vagrant/.m2
