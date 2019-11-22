@@ -29,4 +29,4 @@
         global: yes
     - name: Install node packages
       npm:
-        path: /home/vagrant/webapp-vagrant/
+        path: /home/vagrant/webapp-vagrant/frontend
