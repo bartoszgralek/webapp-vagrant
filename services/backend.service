@@ -7,7 +7,7 @@ StartLimitIntervalSec=0
 Type=simple
 Restart=always
 RestartSec=1
-User=kuba
+User=vagrant
 ExecStart=/bin/bash /home/kuba/Documents/repos/uczelnia/webapp-vagrant/backend/start-backend.sh
 
 [Install]
