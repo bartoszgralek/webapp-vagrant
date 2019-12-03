@@ -1,0 +1,14 @@
+[Unit]
+Description=Frontend service
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=kuba
+ExecStart=/bin/bash /home/kuba/Documents/repos/uczelnia/webapp-vagrant/frontend/start-frontend.sh
+
+[Install]
+WantedBy=multi-user.target

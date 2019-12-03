@@ -30,3 +30,21 @@
         path: /home/vagrant/.m2
         owner: vagrant
         group: vagrant
+    - name: Give execute to start-backend.sh
+      file:
+        path: '/home/vagrant/webapp-vagrant/backend/start-backend.sh'
+        state: file
+        owner: vagrant
+        group: vagrant
+        mode: '0555'
+    - name: Copy backend.service to systemd
+      copy:
+        src: /home/vagrant/webapp-vagrant/services/backend.service
+        dest: /etc/systemd/system
+        owner: vagrant
+        group: vagrant
+        mode: '0555'
+    - name: Run service
+      systemd:
+        state: started
+        name: backend

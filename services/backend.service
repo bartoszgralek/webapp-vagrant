@@ -1,0 +1,14 @@
+[Unit]
+Description=Backend service
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=kuba
+ExecStart=/bin/bash /home/kuba/Documents/repos/uczelnia/webapp-vagrant/backend/start-backend.sh
+
+[Install]
+WantedBy=multi-user.target

@@ -30,3 +30,22 @@
     - name: Install node packages
       npm:
         path: /home/vagrant/webapp-vagrant/frontend
+    - name: Give execute to start-frontend.sh
+      file:
+        path: '/home/vagrant/webapp-vagrant/frontend/start-frontend.sh'
+        state: file
+        owner: vagrant
+        group: vagrant
+        mode: '0555'
+    - name: Copy frontend.service to systemd
+      copy:
+        src: /home/vagrant/webapp-vagrant/services/frontend.service
+        dest: /etc/systemd/system
+        owner: vagrant
+        group: vagrant
+        mode: '0555'
+    - name: Run service
+      systemd:
+        state: started
+        name: frontend  
+
