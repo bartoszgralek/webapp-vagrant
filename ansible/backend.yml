@@ -19,7 +19,7 @@
       git:
         repo: https://github.com/bartoszgralek/webapp-vagrant.git
         dest: /home/vagrant/webapp-vagrant/
-        version: 'vagrant-test'
+        version: 'master'
     - name: Create a m2 directory if it does not exist
       file:
         path: /home/vagrant/.m2
@@ -43,6 +43,7 @@
         dest: /etc/systemd/system
         owner: vagrant
         group: vagrant
+        remote_src: true
         mode: '0555'
     - name: Run service
       systemd:

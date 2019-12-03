@@ -8,10 +8,10 @@
     - name: Setup
       become: true
       shell: 'curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -'
-    - name: Fix packages
-      become: true
-      apt:
-        state: fixed
+    # - name: Fix packages
+    #   become: true
+    #   apt:
+    #     state: fixed
     - name: Install tools
       become: true
       apt:
@@ -22,7 +22,7 @@
       git:
         repo: https://github.com/bartoszgralek/webapp-vagrant.git
         dest: /home/vagrant/webapp-vagrant/
-        version: 'vagrant-test'
+        version: 'master'
     - name: Install angular cli
       npm:
         name: '@angular/cli'
@@ -43,6 +43,7 @@
         dest: /etc/systemd/system
         owner: vagrant
         group: vagrant
+        remote_src: true
         mode: '0555'
     - name: Run service
       systemd:
