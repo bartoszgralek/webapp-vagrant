@@ -13,7 +13,7 @@ export class ApiClientService {
   constructor(private httpClient: HttpClient) { }
 
   public getSample(): Observable<string> {
-    let url = "http://192.168.0.17:8080/api/people";
+    let url = "http://192.168.2.10:8080/api/people";
 
     return this.httpClient.get(url, {responseType: 'text'})
   }
