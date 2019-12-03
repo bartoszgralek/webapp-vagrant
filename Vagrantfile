@@ -18,7 +18,7 @@ Vagrant.configure("2") do |config|
   config.vm.define "frontend" do |frontend|
     # frontend.vm.provision "shell", path: "frontend.sh", run: "always", privileged: true
     frontend.vm.network "private_network", ip: "192.168.2.11"
-    frontend.vm.network "forwarded_port", guest: 4500, host: 4200
+    frontend.vm.network "forwarded_port", guest: 4200, host: 4200
 
     frontend.vm.provision :ansible do |ansible|
       ansible.playbook = "ansible/frontend.yml"    
