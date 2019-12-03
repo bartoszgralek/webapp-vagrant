@@ -8,7 +8,7 @@ Type=simple
 Restart=always
 RestartSec=1
 User=vagrant
-ExecStart=/bin/bash /home/kuba/Documents/repos/uczelnia/webapp-vagrant/frontend/start-frontend.sh
+ExecStart=/bin/bash /home/vagrant/webapp-vagrant/frontend/start-frontend.sh
 
 [Install]
 WantedBy=multi-user.target
